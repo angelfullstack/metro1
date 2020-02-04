@@ -1,17 +1,23 @@
 body, h1, h2 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 * {
     transition: all 1s;
 }
 
-html {
-    scroll-behavior: smooth;
+::-webkit-scrollbar{
+    display:none;
 }
 
+    
 
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
 
 body {
     position: relative;
@@ -19,7 +25,6 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
-
 
 header {
     position: absolute;
@@ -235,13 +240,13 @@ main {}
     max-width: 37em;
     top: calc(50% - 2em);
     right: 5%;
-    transform: translate(0, 0) rotateY(31deg);
+    transform:rotateY(31deg);
     color: #0c0c0c;
     text-shadow: 1em 1em 2em #0c0c0c88;
 }
 
 .cuadrante:nth-child(2n) .seccion {
-    transform: translate(0, 0) rotateY(-31deg);
+    transform: rotateY(-31deg);
     right: unset;
     left: 5%;
 }
@@ -251,9 +256,8 @@ main {}
 }
 
 .seccion h3 {
-    font-family: 'Roboto', sans-serif;
     width: 100%;
-    font-weight: bold;
+    font-weight: 900;
     box-sizing: border-box;
     font-size: 3em;
     padding: 0 5rem 0 0;
@@ -267,52 +271,55 @@ main {}
     text-align: left;
 }
 
-.contSeccion:hover .seccion h3 {}
-
-.contImg {
-  
+.contSeccion:hover .seccion h3 {
     
-    overflow: hidden;
-    padding: 0 5rem 0 0;
-    float:right;
-    width: 0em;
-    box-sizing: border-box;
-    
-    margin:0;
 }
 
+.contImg {
+    overflow: hidden;
+    float: right;
+    width: 0em;
+    box-sizing: border-box;
+    border-radius: 3rem;
+    border: 1em solid transparent;
+    margin: 0 2rem;
 
+}
+
+.contSeccion:hover .contImg {
+    border: 1em solid #ee3333;
+}
 
 .cuadrante:nth-child(2n) .contImg {
-    float:left;
-    padding: 0 0rem 0 5rem;
-    
-    
+    clear: both;
+    float: left;
 }
 
 .contSeccion:hover .contImg {
     height: auto;
-    width: 100%;
+    width: 30rem;
 }
+
 .contImg img {
     display: block;
     width: 100%;
-    filter:saturate(0);
+    filter: saturate(0);
 }
 
 .seccion p {
-    clear:both;
-    float:none;
+    clear: both;
+    float: none;
     width: 100%;
     height: 0vh;
     font-size: 0em;
     box-sizing: border-box;
-    padding: 0 5rem 0 0;
+    padding: 0 5rem 0 6rem;
     text-align: right;
+       color:#303030;
 }
 
 .cuadrante:nth-child(2n) p {
-    padding: 0 0rem 0 5rem;
+    padding: 0 6rem 0 5rem;
     text-align: left;
 }
 
@@ -322,19 +329,18 @@ main {}
 
 footer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 400;
+    bottom: 1em;
+    right: 1em;
+    width:fit-content;
     color: black;
-    width: 100%;
-    height: fit-content;
+     height: fit-content;
     text-align: right;
     box-sizing: border-box;
-    padding: 3em;
 }
 
 footer h5 {
     color: red;
+    margin:0;
 }
 
 /*------------------------------------------------------------*/
