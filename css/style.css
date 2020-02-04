@@ -1,0 +1,382 @@
+body, h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    transition: all 1s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+body {
+    position: relative;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+
+header {
+    position: absolute;
+    top: 3em;
+    right: 25%;
+    transform: translateX(50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.decor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 9em;
+    height: 9em;
+    background: #fbfbea;
+    border: 1em solid #ee3333;
+    box-sizing: border-box;
+    transform-origin: center center;
+    z-index: -1;
+}
+
+.decor .decor {
+    transform: translate(-50%, -50%) rotate(15deg);
+    width: 100%;
+    height: 100%;
+}
+
+header:hover .decor {
+    transform: rotate(90deg);
+}
+
+header:hover>.decor {
+    transform: rotate(45deg);
+}
+
+header h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4em;
+    font-weight: normal;
+    text-shadow: 0 0 .1em #fbfbea;
+}
+
+header h2 {
+    font-size: 2em;
+    font-weight: normal;
+}
+
+/*------------------------------------------------------------*/
+
+nav {
+    position: fixed;
+    z-index: 1;
+    left: 3em;
+    top: 3em;
+    z-index: 300;
+}
+
+nav ul {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    position: relative;
+    text-align: center;
+    background: #ee3333;
+    width: 2em;
+    height: 2em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+
+nav li:after {
+    display: block;
+    position: relative;
+    ;
+    top: 0;
+    margin: 0 auto;
+    content: "";
+    background-color: #ee3333;
+    width: 1em;
+    height: 3em;
+    z-index: -1;
+    border-radius: .5em;
+}
+
+nav li:hover {
+    background-color: #303030;
+}
+
+nav a, nav a:visited {
+    position: relative;
+    top: .5em;
+    transform: translate(-50%, -50%);
+    color: #fbfbea;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*----------------------------------------------------------------------------*/
+
+main {}
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    background: #fbfbea;
+}
+
+.cuadrante {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.contVia {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.via {
+    margin: 0 auto;
+    width: 3em;
+    height: 100%;
+    background: #ee3333;
+}
+
+.contEstacion {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100vh;
+}
+
+.estacion {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background: #ee3333;
+    z-index: 1;
+}
+
+.punto {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background: #303030;
+    box-shadow: 0em 0em .5em #0c0c0caa;
+    animation: sombra .5s cubic-bezier(0, 1.03, .9, .99) 0s infinite alternate;
+}
+
+@keyframes sombra {
+    to {
+        box-shadow: 1em 1em 1.5em #0c0c0caa;
+    }
+}
+
+.contSeccion {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    perspective: 100em;
+    z-index: 1;
+}
+
+.cuadrante:nth-child(2n) .contSeccion {
+    left: unset;
+    right: 0;
+}
+
+.union {
+    position: absolute;
+    width: 6em;
+    height: 3em;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ee3333;
+    ;
+    z-index: 0;
+    border-radius: 1.5em;
+}
+
+.cuadrante:nth-child(2n) .union {
+    right: unset;
+    left: 50%;
+}
+
+.seccion {
+    position: absolute;
+    min-width: 10em;
+    max-width: 37em;
+    top: calc(50% - 2em);
+    right: 5%;
+    transform: translate(0, 0) rotateY(31deg);
+    color: #0c0c0c;
+    text-shadow: 1em 1em 2em #0c0c0c88;
+}
+
+.cuadrante:nth-child(2n) .seccion {
+    transform: translate(0, 0) rotateY(-31deg);
+    right: unset;
+    left: 5%;
+}
+
+.contSeccion:hover .seccion {
+    transform: translate(0, 0) rotateY(0deg);
+}
+
+.seccion h3 {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-size: 3em;
+    padding: 0 5rem 0 0;
+    text-align: right;
+    margin: 0;
+    color: #0c0c0c;
+}
+
+.cuadrante:nth-child(2n) h3 {
+    padding: 0 0rem 0 5rem;
+    text-align: left;
+}
+
+.contSeccion:hover .seccion h3 {}
+
+.contImg {
+  
+    
+    overflow: hidden;
+    padding: 0 5rem 0 0;
+    float:right;
+    width: 0em;
+    box-sizing: border-box;
+    
+    margin:0;
+}
+
+
+
+.cuadrante:nth-child(2n) .contImg {
+    float:left;
+    padding: 0 0rem 0 5rem;
+    
+    
+}
+
+.contSeccion:hover .contImg {
+    height: auto;
+    width: 100%;
+}
+.contImg img {
+    display: block;
+    width: 100%;
+    filter:saturate(0);
+}
+
+.seccion p {
+    clear:both;
+    float:none;
+    width: 100%;
+    height: 0vh;
+    font-size: 0em;
+    box-sizing: border-box;
+    padding: 0 5rem 0 0;
+    text-align: right;
+}
+
+.cuadrante:nth-child(2n) p {
+    padding: 0 0rem 0 5rem;
+    text-align: left;
+}
+
+.contSeccion:hover p {
+    font-size: 1em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 400;
+    color: black;
+    width: 100%;
+    height: fit-content;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 3em;
+}
+
+footer h5 {
+    color: red;
+}
+
+/*------------------------------------------------------------*/
+
+@media (max-width:800px) {
+    body {
+        font-size: 18px;
+    }
+    header {
+        width: 100vw;
+        transform: translate(-50%, 0);
+        left: 50%;
+    }
+    nav {
+        left: unset;
+        right: 3em;
+    }
+    .seccion {
+        width: 73vw;
+    }
+    .cuadrante:nth-child(1n) {
+        width: 25%;
+    }
+    .contSeccion:nth-child(1n) {
+        left: unset;
+        right: 0;
+    }
+    .cuadrante:nth-child(1n) .seccion {
+        transform: translate(0, 0) rotateY(-31deg);
+        right: unset;
+        left: 5%;
+    }
+    .cuadrante:nth-child(1n) h3 {
+        padding: 0 0rem 0 5rem;
+        text-align: left;
+    }
+    .cuadrante:nth-child(1n) .union {
+        right: unset;
+        left: 50%;
+    }
+    .cuadrante:nth-child(1n) p {
+        padding: 0 0rem 0 5rem;
+        text-align: left;
+    }
+}
